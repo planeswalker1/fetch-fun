@@ -1,16 +1,28 @@
-// disable form
-document.querySelector('form').addEventListener('submit', function (event) {
+const form = document.querySelector('form');
+const posts = document.querySelector('#posts');
+const input = document.querySelector('input');
+
+// form event listener
+form.addEventListener('submit', function (event) {
   event.preventDefault();
+  posts.innerHTML = '';
+  // console.log(input.value)
+  if (input.value) {
+    search(input.value);
+  }
+  input.value = '';
 });
 
 // fetch subreddit posts
-fetch('https://www.reddit.com/r/programmerhumor.json')
+function search (subreddit) {
+fetch('https://www.reddit.com/r/' + subreddit + '.json')
   .then(function (response) {
     return response.json();
   }).then(function (json) {
-    console.log(json.data.children);
+    // console.log(json.data.children);
     populatePosts(json.data.children);
   });
+}
 
 // populate and append subreddit posts to dom
 function populatePosts (array) {
@@ -24,7 +36,7 @@ function populatePosts (array) {
     });
 
     if (object.data.url.includes('jpg')) {
-      console.log(data);
+      // console.log(data);
       data.push({
         data: object.data.preview.images[0].source.url,
         element: 'img'
@@ -58,6 +70,6 @@ function createAndAppendElements (array, source) {
     // append title and img to wrapper
     a.appendChild(element);
     // append wrapper to dom
-    document.querySelector('#posts').appendChild(a);
+    posts.appendChild(a);
   });
 }
