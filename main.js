@@ -22,6 +22,7 @@ fetch('https://www.reddit.com/r/' + subreddit + '.json')
     // console.log(json.data.children);
     populatePosts(json.data.children);
   });
+  form.classList.add('form--searched');
 }
 
 // populate and append subreddit posts to dom

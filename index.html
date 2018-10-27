@@ -10,12 +10,14 @@
 </head>
 <body>
   <div class="container">
-    <form>
-      <div>
-        <label for="subreddit">Search subreddits</label>
-        <input id="subreddit" type="text" name="subreddit" placeholder="subreddit">
+    <form class="form">
+      <div class="form-group">
+        <label for="subreddit" class="title">Search subreddit</label>
+        <div class="flex">
+          <input id="subreddit" type="text" name="subreddit" placeholder="subreddit...">
+          <button type="submit">Submit</button>
+        </div>
       </div>
-      <button type="submit">Submit</button>
     </form>
 
     <div id="posts"></div>

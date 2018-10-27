@@ -8,6 +8,103 @@ html {
   box-sizing: inherit;
 }
 
+html,
+body,
+.container {
+  height: 100%;
+}
+
+.container {
+  max-width: 1360px;
+  margin: 0 auto;
+}
+
 body {
   font-family: sans-serif;
+  margin: 0;
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+}
+
+.form--searched {
+  height: initial;
+  flex-direction: row;
+  justify-content: flex-start;
+  margin-left: 30px;
+}
+
+.title {
+  display: block;
+  font-size: 30px;
+  margin: 30px 10px;
+}
+
+input {
+  color: rgba(0, 0, 0, 0.8);
+  border: 1px solid #b9b9b9;
+  padding: 0px 8px;
+  font-size: 15px;
+  border-radius: 2px;
+  height: 36px;
+  outline: none;
+  margin-right: 20px;
+}
+
+.flex {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+button {
+  background-color: #26a69a;
+  border: none;
+  color: #fff;
+  display: inline-block;
+  outline: none;
+  height: 36px;
+  font-size: 15px;
+  letter-spacing: .5px;
+  text-align: center;
+  text-decoration: none;
+  text-transform: uppercase;
+
+  cursor: pointer;
+  transition: all .3s ease-out;
+}
+
+button:hover {
+  background-color: #2bbbad;
+}
+
+#posts {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+}
+
+#posts img {
+  width: 100%;
+}
+
+#posts a {
+  display: block;
+  margin: 50px 0;
+  width: 26%;
+}
+
+@media screen and (max-width: 961px) {
+  .form {
+    flex-direction: column;
+  }
+
+  #posts a {
+    width: 90%;
+  }
 }
